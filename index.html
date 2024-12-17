@@ -59,8 +59,9 @@
       .nav-link {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        padding: 1rem;
+        width: 140px;
+        height: 36px;
+        padding: 0.5rem 1rem;
         background: var(--card-bg);
         border: 1px solid var(--border-color);
         border-radius: 6px;
@@ -131,9 +132,17 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
         color: var(--link-color);
+      }
+
+      .nav-link span:not(.link-icon) {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 0.9rem;
       }
 
       /* 保留现有的媒体查询 */
