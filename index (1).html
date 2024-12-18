@@ -59,9 +59,9 @@
       .nav-link {
         display: flex;
         align-items: center;
-        width: 140px;
-        height: 36px;
-        padding: 0.5rem 1rem;
+        width: 100%;
+        min-height: 36px;
+        padding: 0.5rem;
         background: var(--card-bg);
         border: 1px solid var(--border-color);
         border-radius: 6px;
@@ -78,9 +78,9 @@
 
       .link-grid {
         display: grid;
-        grid-template-columns: repeat(8, 1fr);
-        gap: 1rem;
-        margin-bottom: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 0.8rem;
+        padding: 0.8rem;
       }
 
       .category-title {
@@ -145,8 +145,9 @@
         font-size: 0.9rem;
       }
 
-      /* 保留现有的媒体查询 */
+      /* 移动端优化 - 重新整理媒体查询 */
       @media (max-width: 768px) {
+        /* 导航栏优化 */
         nav ul {
           flex-direction: column;
           align-items: center;
@@ -159,12 +160,7 @@
           padding: 0.5rem;
         }
 
-        .link-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 8px;
-          padding: 8px;
-        }
-
+        /* 头部优化 */
         .header {
           flex-direction: column;
           text-align: center;
@@ -174,49 +170,56 @@
           margin: 0.5rem 0;
         }
 
-        .nav-link {
+        /* 链接网格优化 */
+        .link-grid {
+          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+          gap: 8px;
           padding: 8px;
-          min-height: 60px;
         }
 
-        .nav-link i {
-          font-size: 1.2em;
-          margin-bottom: 4px;
+        .nav-link {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          min-height: 42px;
+          padding: 6px;
         }
 
-        .nav-link span {
-          font-size: 0.9em;
+        .link-icon {
+          margin: 0 0 4px 0;
+        }
+
+        .nav-link span:not(.link-icon) {
+          font-size: 0.85em;
+          text-align: center;
         }
 
         .category-title {
           padding: 12px 8px;
           margin: 12px 0;
-        }
-      }
-
-      /* 移动端优化 */
-      @media (max-width: 480px) {
-        .link-grid {
-          grid-template-columns: repeat(3, 1fr);
-          gap: 0.5rem;
-        }
-
-        .nav-link {
-          padding: 0.75rem;
-          font-size: 0.85rem;
-        }
-
-        .category-title {
           font-size: 1.25rem;
         }
 
+        .container {
+          padding: 12px;
+        }
+      }
+
+      /* 小屏幕设备优化 */
+      @media (max-width: 480px) {
         .link-grid {
+          grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
           gap: 6px;
+          padding: 6px;
         }
 
         .nav-link {
-          padding: 6px;
-          min-height: 50px;
+          min-height: 38px;
+          padding: 4px;
+        }
+
+        .nav-link span:not(.link-icon) {
+          font-size: 0.75em;
         }
 
         .container {
@@ -224,10 +227,22 @@
         }
       }
 
-      /* 超小屏幕设备 */
+      /* 超小屏幕设备优化 */
       @media (max-width: 360px) {
         .link-grid {
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+          gap: 4px;
+          padding: 4px;
+        }
+
+        .nav-link {
+          min-height: 40px;
+        }
+
+        .category-title {
+          font-size: 1.1rem;
+          padding: 8px 4px;
+          margin: 8px 0;
         }
       }
 
