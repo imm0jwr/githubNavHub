@@ -59,15 +59,21 @@
       .nav-link {
         display: flex;
         align-items: center;
-        width: 140px;
-        height: 36px;
-        padding: 0.5rem 1rem;
+        gap: 0.5rem;
+        padding: 1rem;
         background: var(--card-bg);
         border: 1px solid var(--border-color);
         border-radius: 6px;
         color: var(--text-color);
         text-decoration: none;
         transition: all 0.3s ease;
+        height: 24px;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .nav-link:hover {
@@ -132,17 +138,11 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 20px;
-        height: 20px;
-        margin-right: 8px;
+        width: 24px;
+        height: 24px;
         color: var(--link-color);
-      }
-
-      .nav-link span:not(.link-icon) {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        font-size: 0.9rem;
+        flex-shrink: 0;
+        font-size: 1rem;
       }
 
       /* 保留现有的媒体查询 */
